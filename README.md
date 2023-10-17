@@ -90,16 +90,143 @@ $ python3 run.py
     - Request body as json
       - `name` (Required, string): Unique name of the user
       - `email` (Required, string): Unique email of the user
-      - `name` (Required, string): Password of the user
+      - `Password` (Required, string): Password of the user
   - **Responses**:
     - `201`: User created successfully
       - success: True
       - name: "name of user"
       - email: "email of user"
-    - `400`: Email or name already exist
+    - `400`: Email or name already exist or Invalid email or name
       - success: False
-      - message: Email or name already exist
-    - `404`: Invalid Error
+      - message: Email or name already exist or Invalid email or name
+    - `404`: An Error occurred
       - success: False
-      - message: Invalid Email or name 
+      - message: An error occurred 
+    - `500`: Internal Server Error
+
+#### `/game/signin`
+
+- **POST**: Signin to an existing account
+  - **Summary**: Signin to an existing account 
+  - **Parameters**:
+    - Request body as json
+      - `email` (Required, string): Unique email of the user
+      - `Password` (Required, string): Password of the user
+  - **Responses**:
+    - `200`: User sign-in successfully
+      - success: True
+      - name: "name of user"
+      - email: "email of user"
+    - `400`: Invalid email or password
+      - success: False
+      - message: Email does not exist or Incorrect password
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
+      
+   
+#### `/game/guest`
+
+- **POST**: Signin as a guest
+  - **Summary**: Signin as a guest with just name 
+  - **Parameters**:
+    - Request body as json
+      - `name` (Required, string): Name of the user
+  - **Responses**:
+    - `200`: User sign-in successfully
+      - success: True
+      - name: "name of user"
+    - `400`: Invalid name
+      - success: False
+      - message: Enter a valid name
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
+
+ 
+#### `/game/scoreboard`
+
+- **POST**: Saves user's score to server 
+  - **Summary**: Save user's score to server 
+  - **Parameters**:
+    - Request body as json
+      - `name` (Required, string): Name of the user
+      - `score` (Required, integer): User's score
+  - **Responses**:
+    - `200`: Score saved successfully
+      - success: True
+      - name: "name of user"
+      - user_id: "user's id"
+      - score: score
+    - `400`: Invalid user
+      - success: False
+      - message: 'user does not exist'
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
+   
+
+#### `/game/scoreboard`
+
+- **GET**: Get top 20 scores  
+  - **Summary**: Get top 20 scores 
+  - **Parameters**:
+    - No parameters needed
+  - **Responses**:
+    - `200`: Scores returned successfully
+      - [
+          {
+            'name': user's name,
+            'score': user's score
+          }
+        ]
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
+   
+
+#### `/game/scoreboard/tournament`
+
+  - **POST**: Saves score for tournament to server 
+    - **Summary**: Save score for tournament to server 
+    - **Parameters**:
+      - Request body as json
+        - `name` (Required, string): Name of the user
+        - `score` (Required, integer): User's score
+  - **Responses**:
+    - `200`: Score saved successfully
+      - success: True
+      - name: "name of user"
+      - user_id: "user's id"
+      - score: score
+    - `400`: Invalid user
+      - success: False
+      - message: 'user does not exist'
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
+   
+
+#### `/game/scoreboard/tournament`
+
+- **GET**: Get top 20 scores in tournament
+  - **Summary**: Get top 20 scores in tournament
+  - **Parameters**:
+    - No parameters needed
+  - **Responses**:
+    - `200`: Scores returned successfully
+      - [
+          {
+            'name': user's name,
+            'score': user's score
+          }
+        ]
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
     - `500`: Internal Server Error
