@@ -30,7 +30,7 @@ def signup():
 
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 400
+        return({'success': False, 'message': 'An error occurred'}), 404
 
 #user signin route
 @game.route('/signin', strict_slashes=False, methods=['POST'])
@@ -44,12 +44,12 @@ def signin():
             if user.password == password:
                 return jsonify({'success': True, 'name': user.name, 'email': user.email}), 200
             else:
-                return jsonify({'success': False, 'message': 'Incorrect password'})
+                return jsonify({'success': False, 'message': 'Incorrect password'}), 400
         else:
             return jsonify({'success': False, 'message': 'Email does not exist'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 400
+        return({'success': False, 'message': 'An error occurred'}), 404
 
 #guest login route
 @game.route('/guest', strict_slashes=False, methods=['POST'])
@@ -60,10 +60,10 @@ def guest():
         if name:
             return jsonify({'success': True, 'name': name}), 200
         else:
-            return jsonify({'success': False, 'message': 'Enter a valid name'})
+            return jsonify({'success': False, 'message': 'Enter a valid name'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 400
+        return({'success': False, 'message': 'An error occurred'}), 404
 
 
 
@@ -78,13 +78,13 @@ def save_score():
         if user:
             score = Score(user_id=user.id, score=score_value)
             score.insert()
-            return jsonify({'success': True, 'user_id': score.user_id, 'score': score.score}), 200
+            return jsonify({'success': True, 'name': score.user.name, 'user_id': score.user_id, 'score': score.score}), 200
         else:
-            return jsonify({'success': False, 'message': 'user does not exist'}), 404
+            return jsonify({'success': False, 'message': 'user does not exist'}), 400
     
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 400
+        return({'success': False, 'message': 'An error occurred'}), 404
 
 
 # Get Scoreboard which returns first 20 scores
@@ -97,7 +97,7 @@ def get_scoreboard():
     
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 400
+        return({'success': False, 'message': 'An error occurred'}), 404
 
 
 #tournament scoreboard route that recieve score via POST req
@@ -111,7 +111,7 @@ def save_tournament_score():
         if user:
             score = TourScore(user_id=user.id, score=score_value)
             score.insert()
-            return jsonify({'success': True, 'user_id': score.user_id, 'score': score.score}), 200
+            return jsonify({'success': True, 'name': score.user.name, 'user_id': score.user_id, 'score': score.score}), 200
         else:
             return jsonify({'success': False, 'message': 'user does not exist'}), 400
     
@@ -123,6 +123,12 @@ def save_tournament_score():
 #route that returns first 20 score for tournament
 @game.route('/scoreboard/tournament', strict_slashes=False, methods=['GET'])
 def get_tournament_scoreboard():
-    scores = db.session.query(TourScore).join(User).order_by(TourScore.score.desc()).limit(20).all()
-    scoreboard = [{'name': score.user.name, 'score': score.score} for score in scores]
-    return jsonify(scoreboard), 200
+    try:
+        scores = db.session.query(TourScore).join(User).order_by(TourScore.score.desc()).limit(20).all()
+        scoreboard = [{'name': score.user.name, 'score': score.score} for score in scores]
+        return jsonify(scoreboard), 200
+    
+    except Exception as e:
+        print(f'An error occurred: {e}')
+        return({'success': False, 'message': 'An error occurred'}), 404
+
