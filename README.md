@@ -230,3 +230,28 @@ $ python3 run.py
       - success: False
       - message: An error occured 
     - `500`: Internal Server Error
+
+
+
+
+## Screenshots (Postman):
+#### https://newtonbreakoutrevival.onrender.com/game/signup
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/e4098d0a-1532-406c-a299-ce23dc6b2291)
+
+#### https://newtonbreakoutrevival.onrender.com/game/signin
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/4ec43aa6-d27d-40cd-8fc2-be15517c70e6)
+
+#### https://newtonbreakoutrevival.onrender.com/game/guest
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/624a6562-636a-4913-b578-76be5fccf1fd)
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard [POST]
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/19a08edf-a36a-4485-815e-046d987a0c80)
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard [GET]
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/0c56a15a-6daa-4e85-b014-04b91576408a)
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST]
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/c9c080f5-1c3e-41b6-895e-c2c264d6c4c0)
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [GET]
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/dfeb6331-5255-4f97-adc4-2ce410793719)
