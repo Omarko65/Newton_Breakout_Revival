@@ -194,19 +194,19 @@ $ python3 run.py
 
 #### `/game/scoreboard/<score_id>`
   - **DELETE**: Delete users from tournament scoreboard
-   - **Summary**: Delete user score from tournament scoreboard
-   - **Parameters**: No parameter needed
-  - **Responses**:
-    - `200`: Score deleted successfully
-      - success: True
-      - message: 'score deleted successfully
-    - `400`: Invalid score
-      - success: False
-      - message: 'score not found'
-    - `404`: An error occurred
-      - success: False
-      - message: An error occured 
-    - `500`: Internal Server Error
+     - **Summary**: Delete user score from tournament scoreboard
+     - **Parameters**: No parameter needed
+     - **Responses**:
+      - `200`: Score deleted successfully
+        - success: True
+        - message: 'score deleted successfully
+      - `400`: Invalid score
+        - success: False
+        - message: 'score not found'
+      - `404`: An error occurred
+        - success: False
+        - message: An error occured 
+      - `500`: Internal Server Error
 
 #### `/game/scoreboard/tournament`
 
@@ -255,19 +255,19 @@ $ python3 run.py
 
 #### `/game/scoreboard/tournament/<score_id>`
   - **DELETE**: Delete users score from tournament scoreboard
-   - **Summary**: Delete user score from tournament scoreboard
-   - **Parameters**: No parameter needed
-  - **Responses**:
-    - `200`: Score deleted successfully
-      - success: True
-      - message: 'score deleted successfully
-    - `400`: Invalid score
-      - success: False
-      - message: 'score not found'
-    - `404`: An error occurred
-      - success: False
-      - message: An error occured 
-    - `500`: Internal Server Error
+     - **Summary**: Delete user score from tournament scoreboard
+     - **Parameters**: No parameter needed
+    - **Responses**:
+      - `200`: Score deleted successfully
+        - success: True
+        - message: 'score deleted successfully
+      - `400`: Invalid score
+        - success: False
+        - message: 'score not found'
+      - `404`: An error occurred
+        - success: False
+        - message: An error occured 
+      - `500`: Internal Server Error
 
 
 
