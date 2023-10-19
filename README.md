@@ -160,12 +160,14 @@ $ python3 run.py
       - name: "name of user"
       - user_id: "user's id"
       - score: score
+      - score_id: score id,
+      - message: 'Score updated successfully' || Score not updated     previous score is higher or equal' || 'Score added successfully'
     - `400`: Invalid user
       - success: False
       - message: 'user does not exist'
     - `404`: An error occurred
       - success: False
-      - message: An error occured 
+      - message: 'An error occured'
     - `500`: Internal Server Error
    
 
@@ -180,7 +182,8 @@ $ python3 run.py
       - [
           {
             'name': user's name,
-            'score': user's score
+            'score': user's score,
+            'score_id': score id
           }
         ]
     - `404`: An error occurred
@@ -188,6 +191,22 @@ $ python3 run.py
       - message: An error occured 
     - `500`: Internal Server Error
    
+
+#### `/game/scoreboard/<score_id>`
+  - **DELETE**: Delete users from tournament scoreboard
+     - **Summary**: Delete user score from tournament scoreboard
+     - **Parameters**: No parameter needed
+     - **Responses**:
+      - `200`: Score deleted successfully
+        - success: True
+        - message: 'score deleted successfully
+      - `400`: Invalid score
+        - success: False
+        - message: 'score not found'
+      - `404`: An error occurred
+        - success: False
+        - message: An error occured 
+      - `500`: Internal Server Error
 
 #### `/game/scoreboard/tournament`
 
@@ -203,6 +222,8 @@ $ python3 run.py
       - name: "name of user"
       - user_id: "user's id"
       - score: score
+      - score_id: score id,
+      - message: 'Score updated successfully' || Score not updated     previous score is higher or equal' || 'Score added successfully'
     - `400`: Invalid user
       - success: False
       - message: 'user does not exist'
@@ -223,13 +244,30 @@ $ python3 run.py
       - [
           {
             'name': user's name,
-            'score': user's score
+            'score': user's score,
+            'score_id': score id
           }
         ]
     - `404`: An error occurred
       - success: False
       - message: An error occured 
     - `500`: Internal Server Error
+
+#### `/game/scoreboard/tournament/<score_id>`
+  - **DELETE**: Delete users score from tournament scoreboard
+     - **Summary**: Delete user score from tournament scoreboard
+     - **Parameters**: No parameter needed
+    - **Responses**:
+      - `200`: Score deleted successfully
+        - success: True
+        - message: 'score deleted successfully
+      - `400`: Invalid score
+        - success: False
+        - message: 'score not found'
+      - `404`: An error occurred
+        - success: False
+        - message: An error occured 
+      - `500`: Internal Server Error
 
 
 
@@ -249,16 +287,35 @@ $ python3 run.py
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [POST]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/19a08edf-a36a-4485-815e-046d987a0c80)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1d2f0ccc-dec2-4fbe-ae9c-b931e9b3a919)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [GET]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/0c56a15a-6daa-4e85-b014-04b91576408a)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/833c76e8-a10f-4dd1-88fe-e046ef817c40)
+
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard [DELETE]
+ ![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1545689e-acc7-4ccf-8bd4-9d3f165f4a28)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/c9c080f5-1c3e-41b6-895e-c2c264d6c4c0)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/7aa0e912-46cc-4fa1-b950-06babca17e67)
+
+
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST] (Only takes highest score)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/e893b393-5476-44d4-bd5d-0d5ee23b9526)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [GET]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/dfeb6331-5255-4f97-adc4-2ce410793719)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/efb8bd1d-e3fb-417c-9f3d-cc869b61f166)
+
+
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament/<score_id> [DELETE]
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1ec21e60-602f-49f3-a2b3-001b25255112)
+
+
