@@ -160,12 +160,14 @@ $ python3 run.py
       - name: "name of user"
       - user_id: "user's id"
       - score: score
+      - score_id: score id,
+      - message: 'Score updated successfully' || Score not updated     previous score is higher or equal' || 'Score added successfully'
     - `400`: Invalid user
       - success: False
       - message: 'user does not exist'
     - `404`: An error occurred
       - success: False
-      - message: An error occured 
+      - message: 'An error occured'
     - `500`: Internal Server Error
    
 
@@ -180,7 +182,8 @@ $ python3 run.py
       - [
           {
             'name': user's name,
-            'score': user's score
+            'score': user's score,
+            'score_id': score id
           }
         ]
     - `404`: An error occurred
@@ -188,6 +191,22 @@ $ python3 run.py
       - message: An error occured 
     - `500`: Internal Server Error
    
+
+#### `/game/scoreboard/<score_id>`
+  - **DELETE**: Delete users from tournament scoreboard
+   - **Summary**: Delete user score from tournament scoreboard
+   - **Parameters**: No parameter needed
+  - **Responses**:
+    - `200`: Score deleted successfully
+      - success: True
+      - message: 'score deleted successfully
+    - `400`: Invalid score
+      - success: False
+      - message: 'score not found'
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
 
 #### `/game/scoreboard/tournament`
 
@@ -203,6 +222,8 @@ $ python3 run.py
       - name: "name of user"
       - user_id: "user's id"
       - score: score
+      - score_id: score id,
+      - message: 'Score updated successfully' || Score not updated     previous score is higher or equal' || 'Score added successfully'
     - `400`: Invalid user
       - success: False
       - message: 'user does not exist'
@@ -223,9 +244,26 @@ $ python3 run.py
       - [
           {
             'name': user's name,
-            'score': user's score
+            'score': user's score,
+            'score_id': score id
           }
         ]
+    - `404`: An error occurred
+      - success: False
+      - message: An error occured 
+    - `500`: Internal Server Error
+
+#### `/game/scoreboard/tournament/<score_id>`
+  - **DELETE**: Delete users score from tournament scoreboard
+   - **Summary**: Delete user score from tournament scoreboard
+   - **Parameters**: No parameter needed
+  - **Responses**:
+    - `200`: Score deleted successfully
+      - success: True
+      - message: 'score deleted successfully
+    - `400`: Invalid score
+      - success: False
+      - message: 'score not found'
     - `404`: An error occurred
       - success: False
       - message: An error occured 
