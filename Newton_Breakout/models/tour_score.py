@@ -33,6 +33,10 @@ class TourScore(db.Model):
         db.session.delete(self)
         db.session.commit()
     
+    def update(self):
+        """Update the current object in the database"""
+        db.session.commit()
+    
     def __repr__(self):
         '''return class data as string'''
         return f"User-> id: {self.id}, user_id: {self.user_id}, score: {self.score}"

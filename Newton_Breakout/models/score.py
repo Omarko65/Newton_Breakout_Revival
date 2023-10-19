@@ -31,6 +31,10 @@ class Score(db.Model):
         db.session.delete(self)
         db.session.commit()
     
+    def update(self):
+        """Update the current object in the database"""
+        db.session.commit()
+    
     def __repr__(self):
         return f"User-> id: {self.id}, user_id: {self.user_id}, score: {self.score}"
     
