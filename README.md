@@ -287,16 +287,30 @@ $ python3 run.py
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [POST]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/19a08edf-a36a-4485-815e-046d987a0c80)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1d2f0ccc-dec2-4fbe-ae9c-b931e9b3a919)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [GET]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/0c56a15a-6daa-4e85-b014-04b91576408a)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/833c76e8-a10f-4dd1-88fe-e046ef817c40)
+
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard [DELETE]
+ ![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1545689e-acc7-4ccf-8bd4-9d3f165f4a28)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/c9c080f5-1c3e-41b6-895e-c2c264d6c4c0)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/7aa0e912-46cc-4fa1-b950-06babca17e67)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [GET]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/dfeb6331-5255-4f97-adc4-2ce410793719)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/efb8bd1d-e3fb-417c-9f3d-cc869b61f166)
+
+
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament/<score_id> [DELETE]
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1ec21e60-602f-49f3-a2b3-001b25255112)
+
+
