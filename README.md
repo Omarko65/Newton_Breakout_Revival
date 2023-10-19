@@ -305,6 +305,11 @@ $ python3 run.py
 
 
 
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST] (Only takes highest score)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/e893b393-5476-44d4-bd5d-0d5ee23b9526)
+
+
+
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [GET]
 ![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/efb8bd1d-e3fb-417c-9f3d-cc869b61f166)
 
