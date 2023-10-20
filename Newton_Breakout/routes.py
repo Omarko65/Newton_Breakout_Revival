@@ -228,4 +228,4 @@ def wake_up():
         return jsonify({'success': True, 'message': 'Server is awake!!!'}), 200
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404

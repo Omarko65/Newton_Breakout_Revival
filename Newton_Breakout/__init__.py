@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, create_engine
 from .config import App_Config
 from flask_caching import Cache 
 
@@ -14,6 +14,8 @@ def create_app():
 
     cache.init_app(app)
     db.init_app(app)
+
+    engine = create_engine(app.config["SQLALCHEMY_DATABASE_URI"], pool_pre_ping=True, pool_recycle=300)
 
     from Newton_Breakout.routes import game
 
