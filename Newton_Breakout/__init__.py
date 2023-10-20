@@ -1,7 +1,8 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy, create_engine
+from flask_sqlalchemy import SQLAlchemy
 from .config import App_Config
 from flask_caching import Cache 
+from sqlalchemy import create_engine
 
 db = SQLAlchemy()
 cache = Cache() 
