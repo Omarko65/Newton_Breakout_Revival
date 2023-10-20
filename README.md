@@ -152,7 +152,7 @@ $ python3 run.py
   - **Summary**: Save user's score to server 
   - **Parameters**:
     - Request body as json
-      - `name` (Required, string): Name of the user
+      - `user_id` (Required, string): Id of the user
       - `score` (Required, integer): User's score
   - **Responses**:
     - `200`: Score saved successfully
@@ -214,7 +214,7 @@ $ python3 run.py
     - **Summary**: Save score for tournament to server 
     - **Parameters**:
       - Request body as json
-        - `name` (Required, string): Name of the user
+        - `user_id` (Required, string): Id of the user
         - `score` (Required, integer): User's score
   - **Responses**:
     - `200`: Score saved successfully
