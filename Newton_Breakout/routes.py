@@ -35,7 +35,7 @@ def signup():
 
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 #user signin route
 @game.route('/signin', strict_slashes=False, methods=['POST'])
@@ -51,7 +51,7 @@ def signin():
             return jsonify({'success': False, 'message': 'Invalid email or password'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 #guest login route
 @game.route('/guest', strict_slashes=False, methods=['POST'])
@@ -65,7 +65,7 @@ def guest():
             return jsonify({'success': False, 'message': 'Enter a valid name'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 
 
@@ -95,7 +95,7 @@ def save_score():
     
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 
 # Get Scoreboard which returns first 20 scores
@@ -108,7 +108,7 @@ def get_scoreboard():
     
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 
 # Delete score from scoreboard
@@ -123,7 +123,7 @@ def delete_score(score_id):
             return({'success': False, 'message': 'score not found'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 
 
@@ -153,7 +153,7 @@ def save_tournament_score():
     
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 400
+        return({'success': False, 'message': f'An error occurred => {e}'}), 400
 
 
 #route that returns first 20 score for tournament
@@ -166,7 +166,7 @@ def get_tournament_scoreboard():
     
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 
 # Delete score from scoreboard
@@ -181,7 +181,7 @@ def delete_tournament_score(score_id):
             return({'success': False, 'message': 'score not found'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
 
 
 
@@ -204,7 +204,7 @@ def get_users():
             return({'success': False, 'message': 'No user found'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
     
 
 # Delete score from scoreboard
@@ -219,4 +219,4 @@ def delete_user(user_id):
             return({'success': False, 'message': 'user not found'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
-        return({'success': False, 'message': 'An error occurred'}), 404
+        return({'success': False, 'message': f'An error occurred => {e}'}), 404
