@@ -205,3 +205,18 @@ def get_users():
     except Exception as e:
         print(f'An error occurred: {e}')
         return({'success': False, 'message': 'An error occurred'}), 404
+    
+
+# Delete score from scoreboard
+@game.route('/users/<user_id>', strict_slashes=False, methods=['DELETE'])
+def delete_user(user_id):
+    try:
+        user = User.query.filter_by(id=user_id).first()
+        if user:
+            user.delete()
+            return jsonify({'success': True, 'message': 'user deleted successfully'}), 200
+        else:
+            return({'success': False, 'message': 'user not found'}), 400
+    except Exception as e:
+        print(f'An error occurred: {e}')
+        return({'success': False, 'message': 'An error occurred'}), 404
