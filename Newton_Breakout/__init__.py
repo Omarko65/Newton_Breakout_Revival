@@ -4,7 +4,7 @@ from .config import App_Config
 from flask_caching import Cache 
 from sqlalchemy import create_engine
 
-db = SQLAlchemy()
+db = SQLAlchemy(engine_options={"pool_pre_ping": True})
 cache = Cache() 
 
 def create_app():
@@ -15,8 +15,6 @@ def create_app():
 
     cache.init_app(app)
     db.init_app(app)
-
-    engine = create_engine(app.config["SQLALCHEMY_DATABASE_URI"], pool_pre_ping=True, pool_recycle=300)
 
     from Newton_Breakout.routes import game
 
