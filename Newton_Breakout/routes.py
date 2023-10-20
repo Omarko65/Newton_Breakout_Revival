@@ -4,9 +4,11 @@ from Newton_Breakout.models.users import User
 from Newton_Breakout.models.score import Score
 from Newton_Breakout.models.tour_score import TourScore
 from Newton_Breakout.utils import *
+from flask_bcrypt import Bcrypt
 
 
 game = Blueprint("game", __name__, url_prefix="/game")
+bcrypt = Bcrypt()
 
 #signup route to create a new user
 @game.route('/signup', strict_slashes=False, methods=['POST'])
@@ -22,9 +24,12 @@ def signup():
 
             if existing_user:
                 return jsonify({'success': False, 'message': 'Email or name already exist'}), 400
-            user = User(email=email, name=name, password=password)
+            
+            hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+
+            user = User(email=email, name=name, password=hashed_password)
             user.insert()
-            return jsonify({'success': True, 'name': name, 'email': email}), 200
+            return jsonify({'user_id': user.id,'success': True, 'name': name, 'email': email}), 200
         else:
             return jsonify({'success': False, 'message': 'Invalid email or name'}), 400
 
@@ -40,13 +45,10 @@ def signin():
         email = data.get('email')
         password = data.get('password')
         user = User.query.filter_by(email=email).first()
-        if user:
-            if user.password == password:
-                return jsonify({'success': True, 'name': user.name, 'email': user.email}), 200
-            else:
-                return jsonify({'success': False, 'message': 'Incorrect password'}), 400
+        if user and bcrypt.check_password_hash(user.password, password):
+            return jsonify({'success': True, 'name': user.name, 'email': user.email, 'user_id': user.id}), 200
         else:
-            return jsonify({'success': False, 'message': 'Email does not exist'}), 400
+            return jsonify({'success': False, 'message': 'Invalid email or password'}), 400
     except Exception as e:
         print(f'An error occurred: {e}')
         return({'success': False, 'message': 'An error occurred'}), 404
@@ -72,9 +74,9 @@ def guest():
 def save_score():
     try:
         data = request.get_json()
-        name = data.get('name')
+        user_id = data.get('user_id')
         score_value = data.get('score')
-        user = User.query.filter_by(name=name).first()
+        user = User.query.filter_by(id=user_id).first()
         if user:
             score = Score.query.filter_by(user_id=user.id).first()
             if score and score.score < score_value:
@@ -89,7 +91,7 @@ def save_score():
                 return jsonify({'success': True, 'name': score.user.name, 'user_id': score.user_id, 'score': score.score, 'score_id': score.id, 'message': 'Score added successfully'}), 201
 
         else:
-            return jsonify({'success': False, 'message': 'user does not exist'}), 400
+            return jsonify({'success': False, 'message': 'user not found'}), 400
     
     except Exception as e:
         print(f'An error occurred: {e}')
@@ -101,7 +103,7 @@ def save_score():
 def get_scoreboard():
     try:
         scores = db.session.query(Score).join(User).order_by(Score.score.desc()).limit(20).all()
-        scoreboard = [{'name': score.user.name, 'score': score.score, 'score_id': score.id} for score in scores]
+        scoreboard = [{'user_id': score.user_id,'name': score.user.name, 'score': score.score, 'score_id': score.id} for score in scores]
         return jsonify(scoreboard), 200
     
     except Exception as e:
@@ -130,9 +132,9 @@ def delete_score(score_id):
 def save_tournament_score():
     try:
         data = request.get_json()
-        name = data.get('name')
+        user_id = data.get('user_id')
         score_value = data.get('score')
-        user = User.query.filter_by(name=name).first()
+        user = User.query.filter_by(id=user_id).first()
         if user:
             tour_score = TourScore.query.filter_by(user_id=user.id).first()
             if tour_score and tour_score.score < score_value:
@@ -159,7 +161,7 @@ def save_tournament_score():
 def get_tournament_scoreboard():
     try:
         scores = db.session.query(TourScore).join(User).order_by(TourScore.score.desc()).limit(20).all()
-        scoreboard = [{'name': score.user.name, 'score': score.score, 'score_id': score.id} for score in scores]
+        scoreboard = [{'user_id': score.user_id,'name': score.user.name, 'score': score.score, 'score_id': score.id} for score in scores]
         return jsonify(scoreboard), 200
     
     except Exception as e:
@@ -182,3 +184,24 @@ def delete_tournament_score(score_id):
         return({'success': False, 'message': 'An error occurred'}), 404
 
 
+
+# Get all users
+@game.route('/users', strict_slashes=False, methods=['GET'])
+def get_users():
+    try:
+        users = db.session.query(User).all()
+        user_list = []
+        if users:
+            for user in users:
+                user_data = {
+                    'user_id': user.id,
+                    'name': user.name,
+                    'email': user.email,
+                }
+                user_list.append(user_data)
+            return jsonify({'success': True, 'users': user_list}), 200
+        else:
+            return({'success': False, 'message': 'No user found'}), 400
+    except Exception as e:
+        print(f'An error occurred: {e}')
+        return({'success': False, 'message': 'An error occurred'}), 404

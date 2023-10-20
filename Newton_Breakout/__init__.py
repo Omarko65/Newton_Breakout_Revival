@@ -1,14 +1,18 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from .config import SQLALCHEMY_DATABASE_URI
-
+from .config import App_Config
+from flask_caching import Cache 
 
 db = SQLAlchemy()
+cache = Cache() 
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+    app.config.from_object(App_Config)
+    if app.config["SQLALCHEMY_DATABASE_URI"]:
+        print("using db")
 
+    cache.init_app(app)
     db.init_app(app)
 
     from Newton_Breakout.routes import game
