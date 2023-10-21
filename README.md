@@ -275,47 +275,62 @@ $ python3 run.py
 ## Screenshots (Postman):
 
 #### https://newtonbreakoutrevival.onrender.com/game/signup
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/e4098d0a-1532-406c-a299-ce23dc6b2291)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/7eca5d2d-597c-415a-a818-ea1176868ef0)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/signin
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/4ec43aa6-d27d-40cd-8fc2-be15517c70e6)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/c242dad0-2a2b-4a21-ba69-2460fb87e8f2)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/guest
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/624a6562-636a-4913-b578-76be5fccf1fd)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/daa41ecf-65d2-408d-9164-8145783a37a4)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [POST]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1d2f0ccc-dec2-4fbe-ae9c-b931e9b3a919)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/7b9d5a92-bdbc-4174-811a-3acc1789351d)
+
+
+
+#### https://newtonbreakoutrevival.onrender.com/game/scoreboard [POST] (Only takes highest score)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/535fddb2-e6ef-418d-ad67-28ee023e5891)
+
 
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [GET]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/833c76e8-a10f-4dd1-88fe-e046ef817c40)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/5db59cf9-5e51-4b41-9162-d63c10c92e45)
+
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard [DELETE]
- ![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1545689e-acc7-4ccf-8bd4-9d3f165f4a28)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/9777d837-d3c1-4b8f-a0ec-ed81fbddfd5e)
+
 
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/7aa0e912-46cc-4fa1-b950-06babca17e67)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/803dce56-c2ec-472c-9a62-b8aaefd63660)
+
 
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [POST] (Only takes highest score)
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/e893b393-5476-44d4-bd5d-0d5ee23b9526)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/28e8fb71-2418-49b9-a69b-d064dbcee048)
+
 
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament [GET]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/efb8bd1d-e3fb-417c-9f3d-cc869b61f166)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/3a7debfd-31ef-47ef-95cf-1d1a5ea35183)
+
 
 
 
 #### https://newtonbreakoutrevival.onrender.com/game/scoreboard/tournament/<score_id> [DELETE]
-![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/1ec21e60-602f-49f3-a2b3-001b25255112)
+![image](https://github.com/Holic65/Newton_Breakout_Revival/assets/56598437/e3600399-8857-4f0a-a978-3131c1c14fa9)
+
 
 
